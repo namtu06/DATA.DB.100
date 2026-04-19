@@ -1,0 +1,6 @@
+SELECT g.id, g.name, wine.winery_id, w.name
+FROM grape g
+    LEFT OUTER JOIN contains c ON g.id = c.grape_id
+    LEFT OUTER JOIN wine ON c.wine_id = wine.id
+    LEFT OUTER JOIN winery w ON wine.winery_id = w.id
+WHERE g.color = 'blue';
