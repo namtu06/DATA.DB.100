@@ -28,7 +28,7 @@ CREATE TABLE can_instruct(
 CREATE TABLE instructor(
     instructor_id INT NOT NULL,
     instructor_name VARCHAR(30),
-    date_of_birth INT NOT NULL,
+    date_of_birth VARCHAR(30) NOT NULL,
     PRIMARY KEY (instructor_id)
 );
 
@@ -43,12 +43,12 @@ CREATE TABLE hall(
 CREATE TABLE timetable_class(
     class_id INT NOT NULL,
     day_of_week INT NOT NULL,
-    start_time INT NOT NULL,
-    end_time INT NOT NULL,
+    start_time VARCHAR(30) NOT NULL,
+    end_time VARCHAR(30) NOT NULL,
     max_participants INT NOT NULL,
     instructor_id INT NOT NULL,
     hall_id INT NOT NULL,
-    PRIMARY KEY (class_id, day_of_week, start_time, instructor_id, hall_id),
+    PRIMARY KEY (class_id, day_of_week, start_time),
     FOREIGN KEY (class_id) REFERENCES group_exercise_class(class_id),
     FOREIGN KEY (instructor_id) REFERENCES instructor(instructor_id),
     FOREIGN KEY (hall_id) REFERENCES hall(hall_id)
